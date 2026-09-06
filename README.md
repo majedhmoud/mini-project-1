@@ -1,50 +1,63 @@
-# React + TypeScript + Vite
+# Mini Project 1 — Product Inventory
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A product inventory app built with React, TypeScript, and Vite. View products, add a product, change its stock status, and delete products. Summary cards show total, in-stock, and out-of-stock counts.
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js 22 or newer and npm
+- Git
+- Access to this repository if it is private
 
-## Expanding the ESLint configuration
+## Clone and run
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Clone the repository and open its folder:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/majedhmoud/mini-project-1.git
+cd mini-project-1
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Install the dependencies from the committed lockfile:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm ci
 ```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open the local URL printed in the terminal (usually `http://localhost:5173`). Changes to source files appear automatically while the server is running. Press `Ctrl+C` to stop the server.
+
+## Project commands
+
+| Command | Purpose |
+| --- | --- |
+| `npm ci` | Install the exact dependencies in `package-lock.json`. |
+| `npm run dev` | Start the Vite development server. |
+| `npm run lint` | Check the code with ESLint. |
+| `npm run build` | Run TypeScript checks and build the app into `dist/`. |
+| `npm run preview` | Serve an existing production build locally. |
+
+To build and preview the app:
+
+```bash
+npm run build
+npm run preview
+```
+
+Open the URL printed by the preview server. Run the build command again after changing the source to update the preview.
+
+## Project structure
+
+- `src/components/` — product form, product cards, header, and statistics
+- `src/App.tsx` — product state and app layout
+- `src/index.css` — application styles
+- `public/products.json` — initial sample products
+- `docs/` — project requirements and practice documents
+
+## Data storage
+
+Product changes are held in memory and reset when the page reloads. There is no backend or database, and no environment variables are required to run the project.
