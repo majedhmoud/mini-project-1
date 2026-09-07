@@ -78,7 +78,7 @@ function App() {
       <Header />
       <main className="container">
         <section className="stats">
-          <StatCard label="Total Tasks" value={totalCount} />
+          <StatCard label="Total Products" value={totalCount} />
           <StatCard label="In Stock" value={inStockCount} />
           <StatCard label="Out Of Stock" value={outOfStockCount} />
         </section>
